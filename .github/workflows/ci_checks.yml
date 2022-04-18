@@ -37,7 +37,22 @@ jobs:
       - run: cargo build --all --release
   testing:
     name: Test
-    runs-on: ubuntu-latest
+    if: ${{ false }}
+    strategy:
+      matrix:
+        # All generated code should be running on stable now
+        rust: [nightly, stable]
+        include:
+          # Nightly is only for reference and allowed to fail
+          - rust: nightly
+            experimental: true
+        os:
+          # Check compilation works on common OSes
+          # (i.e. no path issues)
+          - ubuntu-latest
+          - macOS-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
