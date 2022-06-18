@@ -1,9 +1,19 @@
 [package]
-authors = ["the rp-rs team"]
-edition = "2018"
-readme = "README.md"
-name = "rp2040-project-template"
+name = "rp2040-rust-embedded"
 version = "0.1.0"
+authors = ["Christopher Kolbe <kontakt@christopherkolbe.de"]
+keywords = ["embedded", "onewire", "temperature", "embedded-hal-driver"]
+categories = ["embedded", "no-std", "hardware-support"]
+edition = "2021"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/chkolbe/rust-rp2040"
+exclude = [
+  ".github",
+  ".vscode",
+  "memory.x",
+  ".gitignore",
+]
 resolver = "2"
 
 [dependencies]
